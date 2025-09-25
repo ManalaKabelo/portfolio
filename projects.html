@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Cheledi Kabelo Manala</title>
+  <meta name="description" content="Projects by Cheledi Kabelo Manala showcasing portfolio, apps, and research work.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="projects-page">
+  <div class="container">
+    <!-- Sidebar -->
+    <header class="sidebar">
+      <a class="brand" href="index.php">
+        <div class="logo">KM</div>
+        <div><div style="font-weight:700">Cheledi Kabelo Manala</div></div>
+      </a>
+      <nav aria-label="Primary">
+        <a href="index.php">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn secondary">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="page-hero">
+        <h1>Projects & Research</h1>
+        <p class="muted">A collection of my personal projects, team collaborations, and academic research work.</p>
+      </section>
+
+      <section class="projects-grid">
+        <article class="project">
+          <h4>Personal Portfolio Website</h4>
+          <p class="muted">A responsive web portfolio built to showcase my skills...</p>
+          <div class="tags"><span class="tag">• HTML</span><span class="tag">• CSS</span><span class="tag">• PHP</span><span class="tag">• Apache NetBeans IDE 27</span></div>
+        </article>
+
+        <article class="project">
+          <h4>GBV App</h4>
+          <p class="muted">My team and I developed a web-based app designed to address crime...</p>
+          <div class="tags"><span class="tag">• HTML</span><span class="tag">• CSS</span><span class="tag">• JavaScript</span><span class="tag">• Visual Studio Code</span></div>
+        </article>
+
+        <article class="project">
+          <h4>To-Do List App</h4>
+          <p class="muted">A simple and efficient To-Do List application that helps users organize tasks...</p>
+          <div class="tags"><span class="tag">• HTML</span><span class="tag">• CSS</span><span class="tag">• JavaScript</span><span class="tag">• Visual Studio Code</span></div>
+        </article>
+
+        <article class="project">
+          <h4>Research Project</h4>
+          <p class="muted"><strong>Title:</strong> The design and optimization of cross-layer protocol for WSNs.</p>
+          <div class="tags"><span class="tag">• OMNeT++</span><span class="tag">• C++</span><span class="tag">• NED</span><span class="tag">• .ini</span></div>
+        </article>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="muted">© <span id="year"></span> Cheledi Kabelo Manala. All rights reserved.</div>
+      <div class="socials">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

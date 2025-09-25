@@ -1,0 +1,274 @@
+/* ===========================
+   Global Settings & Variables
+   =========================== */
+:root {
+  --accent: #FFD700;   /* bright yellow for accent */
+  --muted: #CCCCCC;    /* soft gray */
+  --primary: #FFFFFF;  /* white text */
+  --secondary: #AAAAAA;
+}
+
+/* ===========================
+   Body Layout & Typography
+   =========================== */
+body {
+  display: flex;       /* sidebar + main layout */
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: black;  /* 🔹 default black background */
+  color: var(--primary);
+
+  /* Typography */
+  font-size: 16px;       /* standard base */
+  line-height: 1.6;      /* good readability */
+  font-weight: 400;      /* normal */
+}
+
+/* Remove global background overlay */
+body::before {
+  content: none;
+}
+
+/* ===========================
+   Typography Rules
+   =========================== */
+h1 {
+  font-size: 2.5rem;     /* ~40px */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;       /* ~32px */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.5rem;     /* ~24px */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;       /* ~16px */
+  line-height: 1.7;
+  margin-bottom: 1.2em;
+  color: var(--primary);
+}
+
+/* ===========================
+   Sidebar
+   =========================== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px); /* subtle glass effect */
+}
+
+/* Logo & Brand */
+.sidebar .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar .logo {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Navigation */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+.sidebar nav a {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sidebar nav a:hover {
+  background-color: var(--accent);
+  color: #000;
+}
+
+/* ===========================
+   Main Content
+   =========================== */
+main {
+  margin-left: 220px;
+  padding: 30px;
+  flex: 1;
+  background-color: black; /* 🔹 ensures all non-hero sections stay black */
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+  position: relative;
+  min-height: 100vh; /* full screen */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  color: var(--primary);
+
+  /* Background image */
+  background-image: url('assets/graduation.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Overlay for hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-card,
+.profile {
+  position: relative;
+  z-index: 2; /* content above overlay */
+}
+
+.hero-card {
+  max-width: 600px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.hero-card h1 {
+  font-size: 3em;
+  line-height: 1.2;
+}
+
+.hero-card p {
+  font-size: 1.2em;
+  margin-top: 12px;
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+  background-color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* ===========================
+   Profile (inside hero)
+   =========================== */
+.profile {
+  text-align: center;
+  color: var(--primary);
+}
+
+.profile .avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+
+/* ===========================
+   Page Background Variations
+   =========================== */
+
+/* Home page background */
+body.index-page .hero {
+  background-image: url('assets/graduation.jpeg');
+}
+
+/* About page background */
+body.about-page main {
+  min-height: 100vh;
+  background-image: url('assets/careerR.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding: 50px;
+}
+
+/* Contact page background */
+body.contact-page main {
+  min-height: 100vh;
+  background-image: url('assets/contacts.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  
+}
+
+/* Projects page background */
+body.projects-page main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary);
+  min-height: 100vh;
+  background-image: url('assets/projects.jpeg'); /* 🔹 replace with your actual image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding: 50px;
+}
