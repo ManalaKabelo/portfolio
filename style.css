@@ -15,43 +15,42 @@ body {
   display: flex;       /* sidebar + main layout */
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: black;  /* 🔹 default black background */
+  background-color: black;  /* default black background */
   color: var(--primary);
 
   /* Typography */
-  font-size: 16px;       /* standard base */
-  line-height: 1.6;      /* good readability */
-  font-weight: 400;      /* normal */
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-/* Remove global background overlay */
 body::before {
-  content: none;
+  content: none; /* remove any global overlay */
 }
 
 /* ===========================
    Typography Rules
    =========================== */
 h1 {
-  font-size: 2.5rem;     /* ~40px */
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 2rem;       /* ~32px */
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
 h3 {
-  font-size: 1.5rem;     /* ~24px */
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 p {
-  font-size: 1rem;       /* ~16px */
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.2em;
   color: var(--primary);
@@ -72,7 +71,7 @@ p {
   align-items: center;
   padding: 30px 10px;
   box-sizing: border-box;
-  backdrop-filter: blur(4px); /* subtle glass effect */
+  backdrop-filter: blur(4px);
 }
 
 /* Logo & Brand */
@@ -120,54 +119,54 @@ p {
    =========================== */
 main {
   margin-left: 220px;
-  padding: 30px;
   flex: 1;
-  background-color: black; /* 🔹 ensures all non-hero sections stay black */
+  position: relative;
 }
 
 /* ===========================
-   Hero Section
+   Hero Section (all pages)
    =========================== */
 .hero {
   position: relative;
-  min-height: 100vh; /* full screen */
+  min-height: 100vh; /* full viewport height */
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* stack content vertically */
+  justify-content: center; /* center text vertically */
+  align-items: center; /* center horizontally */
+  text-align: center;
   padding: 50px;
   color: var(--primary);
 
-  /* Background image */
-  background-image: url('assets/graduation.jpeg');
+  /* Background defaults, overridden per page */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* Overlay for hero */
+/* Overlay for hero with blur */
 .hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px); /* blurred overlay */
   z-index: 1;
 }
 
-.hero-card,
-.profile {
+/* Hero content positioning */
+.hero > * {
   position: relative;
-  z-index: 2; /* content above overlay */
+  z-index: 2; /* above overlay */
 }
 
 .hero-card {
-  max-width: 600px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  max-width: 700px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
 .hero-card h1 {
-  font-size: 3em;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* responsive font size */
   line-height: 1.2;
 }
 
@@ -189,6 +188,7 @@ main {
   background-color: var(--accent);
   font-weight: 600;
   font-size: 1rem;
+  margin-top: 20px;
 }
 
 .btn.secondary {
@@ -198,11 +198,12 @@ main {
 }
 
 /* ===========================
-   Profile (inside hero)
+   Profile (optional inside hero)
    =========================== */
 .profile {
   text-align: center;
   color: var(--primary);
+  margin-top: 20px;
 }
 
 .profile .avatar {
@@ -214,61 +215,35 @@ main {
 }
 
 /* ===========================
-   Page Background Variations
+   Page Backgrounds
    =========================== */
-
-/* Home page background */
 body.index-page .hero {
   background-image: url('assets/graduation.jpeg');
 }
 
-/* About page background */
-body.about-page main {
-  min-height: 100vh;
-  background-image: url('assets/careerR.jpeg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--primary);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  padding: 50px;
+body.about-page .hero {
+  background-image: url('assets/Grad2.jpeg');
 }
 
-/* Contact page background */
-body.contact-page main {
-  min-height: 100vh;
-  background-image: url('assets/contacts.jpeg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--primary);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  
+body.contact-page .hero {
+  background-image: url('assets/Grad2.jpeg');
 }
 
-/* Projects page background */
-body.projects-page main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--primary);
-  min-height: 100vh;
-  background-image: url('assets/projects.jpeg'); /* 🔹 replace with your actual image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  padding: 50px;
+body.projects-page .hero {
+  background-image: url('assets/Grad3.jpeg');
+}
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px;
+  }
+  .hero-card h1 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+  }
+  .hero-card p {
+    font-size: 1rem;
+  }
 }
