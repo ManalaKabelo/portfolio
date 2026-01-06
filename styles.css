@@ -1,6 +1,4 @@
-/* ===========================
-   Global Settings & Variables
-   =========================== */
+
 :root {
   --accent: #FFD700;
   --muted: #CCCCCC;
@@ -8,39 +6,28 @@
   --secondary: #AAAAAA;
 }
 
-/* ===========================
-   Body Layout & Typography
-   =========================== */
 body {
   display: flex;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: black;
+  background-color: black !important;
   color: var(--primary);
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
+  background-image: url("assets/graduation.jpeg");
 }
-
 body::before {
   content: none;
 }
-
-/* ===========================
-   Typography
-   =========================== */
 h1, h2, h3, p {
   margin: 0 0 1em 0;
 }
-
 h1 { font-size: 2.5rem; font-weight: 700; }
 h2 { font-size: 2rem; font-weight: 600; }
 h3 { font-size: 1.5rem; font-weight: 600; }
 p { font-size: 1rem; color: var(--primary); }
 
-/* ===========================
-   Sidebar
-   =========================== */
 .sidebar {
   position: fixed;
   left: 0;
@@ -55,7 +42,6 @@ p { font-size: 1rem; color: var(--primary); }
   box-sizing: border-box;
   backdrop-filter: blur(4px);
 }
-
 .sidebar .brand {
   display: flex;
   flex-direction: column;
@@ -64,20 +50,17 @@ p { font-size: 1rem; color: var(--primary); }
   color: inherit;
   margin-bottom: 40px;
 }
-
 .sidebar .logo {
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 8px;
 }
-
 .sidebar nav {
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 15px;
 }
-
 .sidebar nav a {
   color: var(--primary);
   text-decoration: none;
@@ -85,61 +68,50 @@ p { font-size: 1rem; color: var(--primary); }
   border-radius: 6px;
   transition: background 0.3s;
 }
-
 .sidebar nav a:hover {
   background-color: var(--accent);
   color: #000;
 }
-
-/* ===========================
-   Main
-   =========================== */
 main {
   margin-left: 220px;
   padding: 30px;
-  background-color: black;
+  background-color: black !important;
   flex: 1;
 }
-
-/* ===========================
-   Hero Section
-   =========================== */
 .hero {
-  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
   padding: 50px;
-  color: var(--primary);
-  background-image: url('assets/graduation.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: black !important;
+  background-image: url("assets/graduation.jpeg");
+  flex-wrap: wrap;
 }
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.hero-card, .profile {
-  position: relative;
-  z-index: 2;
-}
-
 .hero-card {
   max-width: 600px;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
-
-/* ===========================
-   Buttons
-   =========================== */
+.focus-wrapper {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.focus-card {
+  padding: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+.focus-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+.focus-text {
+  font-weight: 700;
+}
 .btn {
   padding: 10px 20px;
   border-radius: 6px;
@@ -149,44 +121,43 @@ main {
   background-color: var(--accent);
   font-weight: 600;
 }
-
 .btn.secondary {
   background-color: transparent;
   border: 1px solid var(--accent);
   color: var(--accent);
 }
-
-/* ===========================
-   Profile
-   =========================== */
+.btn:hover {
+  opacity: 0.85;
+}
 .profile {
   text-align: center;
+  max-width: 280px;
 }
-
 .profile .avatar {
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border: 3px solid var(--accent);
 }
-
-/* ===========================
-   Footer
-   =========================== */
+.profile-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 footer {
   margin-left: 220px;
   width: calc(100% - 220px);
   text-align: center;
   padding: 50px 20px;
-  background-color: black;
+  background-color: black !important;
   color: var(--primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 footer .card {
   background: transparent;
   border: 1px solid var(--accent);
@@ -195,33 +166,100 @@ footer .card {
   width: fit-content;
   text-align: center;
 }
-
 footer h3 {
   margin-bottom: 10px;
 }
-
 footer ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 footer li {
   margin: 6px 0;
 }
-
 footer a {
   color: var(--muted);
   text-decoration: none;
   transition: color 0.3s;
 }
-
 footer a:hover {
   color: var(--accent);
 }
-
 footer .muted {
   margin-top: 20px;
   font-size: 0.9rem;
   color: var(--muted);
+}
+body:not(.index-page) {
+  background-image: none !important;
+  background-color: black !important;
+}
+/* ================================
+   FULL BACKGROUND IMAGE FOR INDEX PAGE
+   ================================ */
+body.index-page {
+  background-image: url("assets/graduation.jpeg");
+  background-size: cover;           /* stretch to cover entire page */
+  background-position: center;      /* center image */
+  background-repeat: no-repeat;     /* no tiling */
+  background-attachment: fixed;     /* stays in place on scroll */
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Optional dark overlay for readability */
+body.index-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35); /* adjust opacity as needed */
+  z-index: 0;
+}
+
+/* Ensure all content is above overlay */
+body.index-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Make sidebar slightly transparent to show background */
+body.index-page .sidebar {
+  background-color: rgba(0,0,0,0.6); /* semi-transparent */
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+/* Remove black from main content and hero */
+body.index-page main,
+body.index-page .hero {
+  background: none !important;
+}
+
+/* Hero section content stays above overlay */
+body.index-page .hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Adjust footer to also show background */
+body.index-page footer {
+  background: none !important;
+}
+
+/* Optional: add padding to hero so it doesn’t touch edges */
+body.index-page .hero {
+  padding: 50px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
